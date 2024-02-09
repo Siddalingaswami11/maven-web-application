@@ -1,7 +1,7 @@
 node('built-in') {
     def mavenHome = tool name: "maven3.9.6"
-
-    stage('checkout code') {
+properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '1', numToKeepStr: '1')), pipelineTriggers([cron('* * * * *')])])
+stage('checkout code') {
         git credentialsId: 'Githubpasswordnew', url: 'https://github.com/Siddalingaswami11/maven-web-application.git'
     }
     
