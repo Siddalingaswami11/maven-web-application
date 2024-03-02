@@ -1,5 +1,6 @@
 node {
     def mavenHome = tool name: "maven3.9.6"
+    properties([pipelineTriggers([cron('* * * * *')])])
     
     stage("check out code") {
         git credentialsId: '95e7f1c4-8f28-4d21-93ba-b3f9296e040d', url: 'https://github.com/Siddalingaswami11/maven-web-application.git'
